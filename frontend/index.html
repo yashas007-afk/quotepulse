@@ -1,0 +1,55 @@
+<!-- frontend/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QuotePulse</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #f4f4f4;
+      text-align: center;
+      padding: 50px;
+    }
+    #quote-box {
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      margin: auto;
+      width: 50%;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    #quote {
+      font-size: 1.2em;
+      color: #333;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>QuotePulse</h1>
+  <div id="quote-box">
+    <p id="quote">Click below to get a dev quote!</p>
+    <button onclick="getQuote()">Get Quote</button>
+  </div>
+
+  <script>
+    async function getQuote() {
+      const res = await fetch('http://localhost:5050/api/quote');
+      const data = await res.json();
+      document.getElementById('quote').textContent = data.quote;
+    }
+  </script>
+
+</body>
+</html>

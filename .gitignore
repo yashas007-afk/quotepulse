@@ -1,0 +1,16 @@
+# Node.js
+node_modules
+build
+dist
+.env
+.DS_Store
+
+# Python/Flask (if backend is Python)
+__pycache__/
+*.pyc
+instance/
+.env
+
+# Docker
+*.log
+
